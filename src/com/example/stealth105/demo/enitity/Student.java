@@ -1,4 +1,4 @@
-package com.example.stealth105.enitity;
+package com.example.stealth105.demo.enitity;
 
 
 import javax.persistence.*;
