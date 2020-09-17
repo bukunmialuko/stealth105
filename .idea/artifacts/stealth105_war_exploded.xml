@@ -7,6 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="stealth105" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Hibernate 5.4.11-5.4.11" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.21" />
+          <element id="library" level="project" name="Spring-5.2.3.RELEASE" />
+          <element id="library" level="project" name="Spring MVC-5.2.3.RELEASE" />
+        </element>
       </element>
     </root>
   </artifact>
