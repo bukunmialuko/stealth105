@@ -52,7 +52,6 @@ public class QueryStudentDemo {
             System.out.println("\n\nStudents whose email ends with gmail.com");
             displayStudents(theStudents);
 
-
             // commit transaction
             session.getTransaction().commit();
 
