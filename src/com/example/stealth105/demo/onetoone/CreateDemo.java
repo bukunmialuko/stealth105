@@ -1,4 +1,4 @@
-package com.example.stealth105.demo;
+package com.example.stealth105.demo.onetoone;
 
 import com.example.stealth105.demo.enitity.Instructor;
 import com.example.stealth105.demo.enitity.InstructorDetail;

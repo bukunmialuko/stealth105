@@ -1,6 +1,6 @@
-package com.example.stealth105.demo;
+package com.example.stealth105.demo.onetomany;
 
-
+import com.example.stealth105.demo.enitity.Course;
 import com.example.stealth105.demo.enitity.Instructor;
 import com.example.stealth105.demo.enitity.InstructorDetail;
 import org.hibernate.Session;
@@ -8,7 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
-public class GetInstructorDetailDemo {
+
+public class GetInstructorCoursesDemo {
 
     public static void main(String[] args) {
 
@@ -17,6 +18,7 @@ public class GetInstructorDetailDemo {
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
+                .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
 
         // create session
@@ -27,28 +29,23 @@ public class GetInstructorDetailDemo {
             // start a transaction
             session.beginTransaction();
 
-            // get the instructor detail object
-            int theId = 2;
-            InstructorDetail tempInstructorDetail =
-                    session.get(InstructorDetail.class, theId);
+            // get the instructor from db
+            int theId = 1;
+            Instructor tempInstructor = session.get(Instructor.class, theId);
 
-            // print the instructor detail
-            System.out.println("tempInstructorDetail: " + tempInstructorDetail);
+            System.out.println("Instructor: " + tempInstructor);
 
-            // print  the associated instructor
-            System.out.println("the associated instructor: " +
-                    tempInstructorDetail.getInstructor());
+            // get courses for the instructor
+            System.out.println("Courses: " + tempInstructor.getCourses());
 
             // commit transaction
             session.getTransaction().commit();
 
             System.out.println("Done!");
         }
-        catch (Exception exc) {
-            exc.printStackTrace();
-        }
         finally {
-            // handle connection leak issue
+
+            // add clean up code
             session.close();
 
             factory.close();
