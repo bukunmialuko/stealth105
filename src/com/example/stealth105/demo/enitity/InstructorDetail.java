@@ -41,8 +41,7 @@ public class InstructorDetail {
     // add @OneToOne annotation
 
     @OneToOne(mappedBy="instructorDetail",
-            cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-                    CascadeType.REFRESH})
+            cascade={CascadeType.ALL})
     private Instructor instructor;
 
 
